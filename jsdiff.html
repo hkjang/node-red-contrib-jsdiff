@@ -1,0 +1,42 @@
+<script type="text/javascript">
+    RED.nodes.registerType('jsdiff',{
+        category: 'function',
+        defaults: {
+            targetObject: {value:"", required:false},
+            oldValue: {value:"", required:false},
+            newValue: {value:"", required:false},
+            name: {value: "diff"}
+        },
+        color: '#FFFFFF',
+        inputs:1,
+        outputs:1,
+        icon: "jsdiff.png",
+        label: function() {
+            return this.name || "diff";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="jsdiff">
+    <div class="form-row">
+        <label for="node-input-targetObject"><i class="fa fa-targetObject"></i>targetObject</label>
+        <input type="text" id="node-input-targetObject" placeholder="targetObject">
+    </div>
+    <div class="form-row">
+        <label for="node-input-oldValue"><i class="fa fa-oldValue"></i>oldValue</label>
+        <input type="text" id="node-input-oldValue" placeholder="oldValue">
+    </div>
+    <div class="form-row">
+        <label for="node-input-newValue"><i class="fa fa-newValue"></i>newValue</label>
+        <input type="text" id="node-input-newValue" placeholder="newValue">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="jsdiff">
+    <p> <b>msg.payload.oldValue, newValue, targetObject needed</b></p>
+    <p> compare old and new string or array or json or etc </p>
+</script>

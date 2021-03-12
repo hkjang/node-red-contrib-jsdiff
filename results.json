@@ -1,0 +1,20 @@
+[
+  {
+    "count": 2,
+    "value": "{\n  \"name\": \"naver\",\n"
+  },
+  {
+    "count": 1,
+    "removed": true,
+    "value": "  \"value\": 1\n"
+  },
+  {
+    "count": 1,
+    "added": true,
+    "value": "  \"value\": 2\n"
+  },
+  {
+    "count": 1,
+    "value": "}"
+  }
+]

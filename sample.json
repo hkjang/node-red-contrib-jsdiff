@@ -1,0 +1,81 @@
+[
+  {
+    "id": "a5713573.755a58",
+    "type": "inject",
+    "z": "98b6e6a8.7f6808",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 190,
+    "y": 100,
+    "wires": [
+      [
+        "96817de4.9b66f"
+      ]
+    ]
+  },
+  {
+    "id": "96817de4.9b66f",
+    "type": "function",
+    "z": "98b6e6a8.7f6808",
+    "name": "",
+    "func": "msg = {};\nmsg.targetObject = 'diffSentences' // diffSentences, diffCss, diffJson, diffArrays, diffTrimmedLines, diffLines, diffWordsWithSpace\nmsg.oldValue = 'string'\nmsg.newValue = 'sttring'\n\nmsg.targetObject = 'diffJson' // diffSentences, diffCss, diffJson, diffArrays, diffTrimmedLines, diffLines, diffWordsWithSpace\nmsg.oldValue = {\n 'name': 'naver',\n 'value' : 1\n}\nmsg.newValue = {\n  'name' : 'naver',\n  'value' : 2\n}\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 360,
+    "y": 100,
+    "wires": [
+      [
+        "f181b39c.f4d58"
+      ]
+    ]
+  },
+  {
+    "id": "f181b39c.f4d58",
+    "type": "jsdiff",
+    "z": "98b6e6a8.7f6808",
+    "targetObject": "",
+    "oldValue": "",
+    "newValue": "",
+    "name": "diff",
+    "x": 530,
+    "y": 100,
+    "wires": [
+      [
+        "e4949bb8.788d18"
+      ]
+    ]
+  },
+  {
+    "id": "e4949bb8.788d18",
+    "type": "function",
+    "z": "98b6e6a8.7f6808",
+    "name": "",
+    "func": "node.error(msg.payload);\nvar results = ''\nfor(var i in msg.payload){\n    results += msg.payload[i].value + ''\n}\n\nnode.error(results);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 700,
+    "y": 100,
+    "wires": [
+      []
+    ]
+  }
+]
